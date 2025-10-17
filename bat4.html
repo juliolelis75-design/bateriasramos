@@ -1,0 +1,809 @@
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB4AAAAJYCAYAAACvuhEoAAAACXBIWXMAAAsTAAALEwEAmpwYAAABN2lDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarY6xSsNQFEDPi6LiUCsEcXB4kygotupgxqQtRRCs1SHJ1qShSmkSXl7VfoSjWwcXd7/AyVFwUPwC/0Bx6uAQIYODCJ7p3MPlcsGo2HWnYZRhEGvVbjrS9Xw5+8QMUwDQCbPUbrUOAOIkjvjB5ykCoAMRSJljkPgAJUQGAIDHADRdUB0FQM0+oIwKYAGAOQFQfEAsQl4GQEwFQPIAUJdAKYAbAPcBQMsA0hEAFgXg3wD0C6DAACQ6gMwP4F8AfwDQBEC0CVBdANwD4M8A+ANgPQBsBfBfAPcCoINpE8QZAB1p+DgvpfOBF0gX0DdEJ1gPKIR7tJ3K8fDe6DiX0r6pVg6jRY3gQzIh0rE0MKQLLJyh1L5o9PgDwD+Wvvp6uGgAAAAGYktHRAD/AP8A/6C9p5MAACAASURBVHhe7J0HgBVF+sefBAQEBFQQQQERRBRFkggSFAQEBEkiURFBRBEwISjmBCKiIAYMiIgKEhQQkCAZJecgScmCoigqCBJEEQT/M7VvZ19vb297r+/d7fF8P3z7bvfdu9vV1dVVXV39rwMHDghCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGE5C9/YQKQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhJQMFICEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEJKCAWguQC0ePFiWbVqlSxbtky2bdsmP/30k+zcuVP27NkjL774YkCqRx55RNasWSNr166VDRs2yKZNm2Tz5s2yZcsW+e6772T79u3y/ffvy48//ii7du2SH374Qfbu3Sv79u2T/fv3S1FRkRw8eFD++OMPOXToUMB+/OMf/xD8jONwLI7HNXAtXBPXxrVxD9wL98Q9cW/cH8/A8/AsPBfPxvPxDjwH78K78U68I+/Ku/PevIPvJoQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQggJJr8F4Oefn/gFaY0aNaRVq1bSunVradOmjbRr107at28vHTp0kI4dO0qnTp2kS5cu0rVrV+nWrZt0795devbsKb169ZI+ffpI37595bjjjpPjjz9eTjjhBOnfv78MHDhQBg0aJCeffLIMGTJEhg4dKsOGDZPhw4dLRkaGjBgxQjIzM2XUqFEyevRoOfXUU2XMmDFy2mmnydixY2XcuHFy+umny/jx42XChAkyadIkOfPMM+Wss86SyZMny9lnny1TpkyRqVOnyrRp0+Scc86R8847T84//3yZMWOGzJw5U2bNmiWzZ8+WOXPmyNy5c2XevHkyf/58WbBggSxcuFAWLVokixcvliVLlsjSpUvlk08+keXLl8uKFStk5cqV8umnn8qqVatk9erVsmbNGlm7dq2sW7dO1q9fLxs2bJCNGzfKpk2bZPPmzbJlyxbZunWrbNu2Tb799lvZvn277NixQ3bs2CE7d+6UXbt2ye7du2XPnj2yd+9e2bdvn+zfv18OHDggBw8elD/++EMOHTokh/8lhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCMkNxU4AXnDBBXLhhRfKxIkT5dJLL5VLL71ULrvsMrniiitkypQpMm3aNJk+fbpcddVVcvXVV8s111wj1157rUybNk2uv/56ueGGG+TGG2+Um266SW6++Wa55ZZb5NZbb5Xbbrstzb///e80N910U5rbbrstzW233Zbmtttuky1btqS57bbb0tx2221pbrvttjS33XZbmttuuy3NbbfdVgZWvTL33HNPmrvvvjvNXXfdlebOO+9Mc8cdd6S5/fbb09x2221p7r777jR33nln2aeffrrMXXfdleauu+5Kc+edd6a54447ytx+++1l7rjjjjK33357mVtvvbXM7bffXua2224rc+utt5a59dZb06o//t5+++1l7rjjjjJ33HFHmVtvvbXMbbfdVuaWW24pc/PNN5e5+eaby9x4441lbrzxxjI33HBDmRtuuKHM9ddfX+a6664rc+2115a55pprylxzzTVlrrnmmjJXX311mauuuqrMVVddVebKK68sc+WVV5a54oorykyZMqXMlClTylx++eVlLr/88jKXXnppRtavX18Gv1977bVlrr322jLXXHNNmWuuuabM1VdfXebqq68uc9VVV5W56qqrylx55ZVlrrzySjzzyiuvLHPFFVeUmTJlSpkpU6aUueyyy8pcdtllZS699FI8c+mll5a59NJL8czFF19cZvLkyXjGqy++OE3xHIAXXHBBmgsuuCDNhRdeWObCCy8sc8EFF5S54IILylxwwQVlJk6cWGbixIll8EwTJ05MM3HixDQTJ05Mc8EFF6SZOHGCPP/8+Bz8RgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhJQEMgXg5ZdfLldccYVMmTJFpk6dKtOmTZPp06fLjBkzZObMmTJr1iyZPXu2zJkzR+bOnSvz5s2T+fPny4IFC2ThwoWyaNEiWbx4sSxZskSWLl0qn3zyiSxfvlxWrFghK1eulE8//VRWrVolq1evljVr1sjatWtl3bp1sn79etmwYYNs3LhRNm3aJJs3b5YtW7bI1q1bZdu2bfLtt9/K9u3bZceOHbJz507ZtWuX7N69W/bs2SN79+6Vffv2yf79++XAgQNy8ODB9FW7hEQ8QgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBSmlAAEkIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSUEApAQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYSQEkIBSAghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghpIRQABJCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCElhAKQEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIKSEUgIQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQkgJoQAkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCSggFICGEEEIIIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCCCGEEFJCKAAJIYQQQgghhBBCCCGEEEIIIYQQQgghhBBCC<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Baterias Ramos - 45+ anos em Betim. Entrega e instalação grátis. Marcas Moura, Tudor, Cral, Sedna. Teste de bateria e alternador. Orçamento via WhatsApp.">
+    <title>Baterias Ramos | Betim/MG - Entrega e Instalação Grátis</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --vermelho: #d32f2f;
+            --verde: #16a34a;
+            --cinza-claro: #f5f5f5;
+            --cinza-escuro: #333;
+            --branco: #ffffff;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--cinza-escuro);
+        }
+
+        header {
+            background: var(--branco);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+            display: block;
+            object-fit: contain;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                height: 50px;
+            }
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--cinza-escuro);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--vermelho);
+        }
+
+        .btn-whatsapp-header {
+            background: var(--verde);
+            color: var(--branco);
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-whatsapp-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(22, 163, 74, 0.3);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--vermelho) 0%, #b71c1c 100%);
+            color: var(--branco);
+            padding: 4rem 2rem;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: var(--branco);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge svg {
+            flex-shrink: 0;
+        }
+
+        .form-orcamento {
+            background: var(--branco);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .form-orcamento h3 {
+            color: var(--vermelho);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--cinza-escuro);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--verde);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--verde);
+            color: var(--branco);
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(22, 163, 74, 0.3);
+        }
+
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            color: var(--cinza-escuro);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--branco);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-icon {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card h3 {
+            color: var(--vermelho);
+            margin-bottom: 1rem;
+        }
+
+        .marcas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .marca-card {
+            background: var(--cinza-claro);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--verde);
+        }
+
+        .marca-card h4 {
+            color: var(--vermelho);
+            margin-bottom: 0.5rem;
+        }
+
+        .marca-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .depoimento-card {
+            background: var(--branco);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .stars {
+            color: #ffc107;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .depoimento-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .depoimento-autor {
+            font-weight: 600;
+            color: var(--cinza-escuro);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: var(--branco);
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            cursor: pointer;
+        }
+
+        summary {
+            font-weight: 600;
+            color: var(--vermelho);
+            font-size: 1.1rem;
+        }
+
+        details p {
+            margin-top: 1rem;
+            color: #555;
+        }
+
+        .contato-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contato-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .info-icon {
+            color: var(--verde);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mapa {
+            width: 100%;
+            height: 400px;
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background: var(--cinza-escuro);
+            color: var(--branco);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--verde);
+            color: var(--branco);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4);
+            text-decoration: none;
+            transition: transform 0.3s;
+            z-index: 999;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: var(--verde);
+            color: var(--branco);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(22, 163, 74, 0.3);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .contato-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-content {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://i.imgur.com/B078KPU.png" alt="Baterias Ramos Logo" class="logo">
+            <nav>
+                <a href="#orcamento">Orçamento</a>
+                <a href="#servicos">Serviços</a>
+                <a href="#marcas">Produtos</a>
+                <a href="#sobre">Sobre Nós</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contato">Contato</a>
+                <a href="https://wa.me/553135321880" target="_blank" class="btn-whatsapp-header">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                    WhatsApp
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="orcamento">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Baterias Ramos, a loja mais completa de Baterias em Betim</h1>
+                <p>Informe seu veículo e receba o orçamento direto no WhatsApp com entrega e instalação grátis em Betim</p>
+                
+                <div class="badges">
+                    <span class="badge">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M12 1v6m0 6v6m4.22-13.22l-4.5 4.5m0 5.44l4.5 4.5M23 12h-6m-6 0H1m17.78 4.22l-4.5-4.5m0-5.44l4.5-4.5"></path>
+                        </svg>
+                        +45 anos de confiança
+                    </span>
+                    <span class="badge">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="1" y="6" width="15" height="12" rx="2" ry="2"></rect>
+                            <path d="M16 6v12M1 10h15M8 18v-8M5 18v-8M11 18v-8"></path>
+                        </svg>
+                        Teste de bateria
+                    </span>
+                    <span class="badge">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <rect x="1" y="3" width="15" height="13"></rect>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+                        </svg>
+                        Entrega grátis
+                    </span>
+                    <span class="badge">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"></path>
+                        </svg>
+                        Atendimento rápido
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-orcamento">
+                <h3>Faça seu orçamento</h3>
+                <form id="formOrcamento">
+                    <div class="form-group">
+                        <label for="veiculo">Modelo do veículo *</label>
+                        <input type="text" id="veiculo" required placeholder="Ex: Gol, Civic, HB20...">
+                    </div>
+                    <div class="form-group">
+                        <label for="ano">Ano *</label>
+                        <input type="text" id="ano" required placeholder="Ex: 2020">
+                    </div>
+                    <div class="form-group">
+                        <label for="bairro">Bairro/Cidade *</label>
+                        <input type="text" id="bairro" required placeholder="Ex: Centro, Betim">
+                    </div>
+                    <div class="form-group">
+                        <label for="marca">Preferência de marca (opcional)</label>
+                        <select id="marca">
+                            <option value="">Selecione...</option>
+                            <option value="Moura">Moura</option>
+                            <option value="Tudor">Tudor</option>
+                            <option value="Cral">Cral</option>
+                            <option value="Sedna">Sedna</option>
+                            <option value="Júpiter">Júpiter</option>
+                            <option value="Outra">Outra</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        Faça um orçamento agora mesmo
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos">
+        <div class="container">
+            <h2 class="section-title">Por que escolher a Baterias Ramos?</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2">
+                            <path d="M9 17H7A5 5 0 0 1 7 7h2"></path>
+                            <path d="M15 7h2a5 5 0 1 1 0 10h-2"></path>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                    </div>
+                    <h3>Entrega e instalação grátis</h3>
+                    <p>Vamos até você em Betim, com entrega imediata. Não precisa se deslocar, levamos a solução até seu carro.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d32f2f" stroke-width="2">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <h3>Marcas de confiança</h3>
+                    <p>Moura, Tudor, Cral, Sedna e mais. Sempre a amperagem certa para o seu carro, garantindo desempenho ideal.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Garantia de verdade</h3>
+                    <p>Acompanhamento de garantia, teste do alternador e suporte humano quando você precisar. Estamos aqui por você.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="marcas" style="background: var(--cinza-claro);">
+        <div class="container">
+            <h2 class="section-title">Produtos - Principais Marcas</h2>
+            <p style="text-align: center; margin-bottom: 3rem; font-size: 1.1rem; color: #555;">Trabalhamos com as melhores marcas do mercado</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem; margin-bottom: 3rem;">
+                <div style="background: white; padding: 2.5rem 2rem; border-radius: 15px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; border: 1px solid #f0f0f0;">
+                    <div style="width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; background: #fafafa; border-radius: 10px; padding: 1rem;">
+                        <img src="https://i.imgur.com/Lw5gz0y.png" alt="Bateria Tudor" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                    </div>
+                    <h4 style="color: var(--vermelho); margin-bottom: 0.8rem; font-size: 1.2rem;">Tudor</h4>
+                    <p style="font-size: 0.95rem; color: #666; font-weight: 500;">24 meses de garantia</p>
+                </div>
+                
+                <div style="background: white; padding: 2.5rem 2rem; border-radius: 15px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; border: 1px solid #f0f0f0;">
+                    <div style="width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; background: #fafafa; border-radius: 10px; padding: 1rem;">
+                        <img src="https://i.imgur.com/Cdgev83.png" alt="Bateria Heliar" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                    </div>
+                    <h4 style="color: var(--vermelho); margin-bottom: 0.8rem; font-size: 1.2rem;">Heliar</h4>
+                    <p style="font-size: 0.95rem; color: #666; font-weight: 500;">24 meses de garantia</p>
+                </div>
+                
+                <div style="background: white; padding: 2.5rem 2rem; border-radius: 15px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; border: 1px solid #f0f0f0;">
+                    <div style="width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; background: #fafafa; border-radius: 10px; padding: 1rem;">
+                        <img src="https://i.imgur.com/ooe6Qu5.png" alt="Bateria Moura" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                    </div>
+                    <h4 style="color: var(--vermelho); margin-bottom: 0.8rem; font-size: 1.2rem;">Moura</h4>
+                    <p style="font-size: 0.95rem; color: #666; font-weight: 500;">24 meses de garantia</p>
+                </div>
+                
+                <div style="background: white; padding: 2.5rem 2rem; border-radius: 15px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; border: 1px solid #f0f0f0;">
+                    <div style="width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; background: #fafafa; border-radius: 10px; padding: 1rem;">
+                        <img src="https://i.imgur.com/Zytlof7.png" alt="Bateria Zetta" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                    </div>
+                    <h4 style="color: var(--vermelho); margin-bottom: 0.8rem; font-size: 1.2rem;">Zetta</h4>
+                    <p style="font-size: 0.95rem; color: #666; font-weight: 500;">18 meses de garantia</p>
+                </div>
+                
+                <div style="background: white; padding: 2.5rem 2rem; border-radius: 15px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; border: 1px solid #f0f0f0;">
+                    <div style="width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; background: #fafafa; border-radius: 10px; padding: 1rem;">
+                        <img src="https://i.imgur.com/fVr4HAi.png" alt="Bateria Sedna" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                    </div>
+                    <h4 style="color: var(--vermelho); margin-bottom: 0.8rem; font-size: 1.2rem;">Sedna</h4>
+                    <p style="font-size: 0.95rem; color: #666; font-weight: 500;">12 meses de garantia</p>
+                </div>
+                
+                <div style="background: white; padding: 2.5rem 2rem; border-radius: 15px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); transition: transform 0.3s, box-shadow 0.3s; border: 1px solid #f0f0f0;">
+                    <div style="width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; background: #fafafa; border-radius: 10px; padding: 1rem;">
+                        <img src="https://i.imgur.com/6Jb94wl.png" alt="Bateria Cral" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                    </div>
+                    <h4 style="color: var(--vermelho); margin-bottom: 0.8rem; font-size: 1.2rem;">Cral</h4>
+                    <p style="font-size: 0.95rem; color: #666; font-weight: 500;">12 a 18 meses de garantia</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="https://wa.me/553135321880?text=Olá! Gostaria de consultar produtos e marcas disponíveis." target="_blank" class="btn-cta">Consultar Produtos via WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre Nós</h2>
+            
+            <div style="max-width: 900px; margin: 0 auto 4rem;">
+                <div style="background: white; padding: 3rem; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+                    <h3 style="color: var(--vermelho); margin-bottom: 1.5rem; font-size: 1.5rem;">Nossa História</h3>
+                    <p style="line-height: 1.8; color: #555; font-size: 1.1rem;">
+                        Fundada em 1979 por Fernando Ramos, a Baterias Ramos é uma empresa familiar com mais de 45 anos de tradição em Betim. Reconhecida pela confiança e atendimento próximo, mantém até hoje os valores de honestidade, transparência e respeito, que consolidaram sua história no mercado automotivo.
+                    </p>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <img src="https://i.imgur.com/PCMmHuy.jpeg" alt="Equipe Baterias Ramos" style="width: 100%; max-width: 700px; border-radius: 15px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
+                    <p style="margin-top: 1rem; font-style: italic; color: #666; font-size: 1rem;">Bianca, Fernando e Leandro - A equipe Baterias Ramos</p>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; color: var(--vermelho); margin-bottom: 2rem; font-size: 1.8rem;">O que nossos clientes dizem</h3>
+            <div class="depoimentos-grid">
+                <div class="depoimento-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="depoimento-text">"Excelente atendimento! Instalaram a bateria no meu carro em casa, muito prático e rápido."</p>
+                    <p class="depoimento-autor">— João S.</p>
+                </div>
+                <div class="depoimento-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="depoimento-text">"Empresa confiável, anos de tradição. Sempre compro minhas baterias aqui, qualidade garantida!"</p>
+                    <p class="depoimento-autor">— Maria C.</p>
+                </div>
+                <div class="depoimento-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="depoimento-text">"Preço justo, entrega rápida e ainda fizeram o teste do alternador. Recomendo!"</p>
+                    <p class="depoimento-autor">— Carlos R.</p>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="https://g.page/r/Cc2gy9zewry_EB0/review" target="_blank" class="btn-cta">Ver avaliações no Google</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" style="background: var(--cinza-claro);">
+        <div class="container">
+            <h2 class="section-title">Dúvidas Frequentes</h2>
+            <div class="faq-container">
+                <details>
+                    <summary>Quando devo trocar a bateria?</summary>
+                    <p>Em média a cada 2–4 anos, ou antes se notar partida fraca, luzes oscilando e acessórios falhando. Fazemos teste gratuito para verificar o estado da sua bateria.</p>
+                </details>
+                <details>
+                    <summary>Posso usar amperagem maior?</summary>
+                    <p>Siga a recomendação do fabricante do veículo. Em alguns veículos, amperagem maior pode sobrecarregar o alternador. Nossa equipe orienta você sobre a melhor escolha.</p>
+                </details>
+                <details>
+                    <summary>Como saber se o alternador está carregando?</summary>
+                    <p>Medindo a tensão com o motor ligado (geralmente entre 13,8 V e 14,4 V). Fazemos esse teste para você gratuitamente no momento da instalação.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <div class="container">
+            <h2 class="section-title">Fale Conosco</h2>
+            <div class="contato-grid">
+                <div class="contato-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Endereço</strong>
+                            <p>Av. Bandeirantes, 78, Centro<br>Betim/MG</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Telefone</strong>
+                            <p>(31) 3532-1880</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Horário de Atendimento</strong>
+                            <p>Seg–Sex: 08h–18h<br>Sábado: 08h–12h</p>
+                        </div>
+                    </div>
+
+                    <div>
+                    <div style="width: 100%; height: 400px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.0474741085695!2d-44.194758925858814!3d-19.964505639381876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa6c384c151fc2d%3A0xbfbcc2dedccba0cd!2sBaterias%20Ramos!5e0!3m2!1spt-BR!2sbr!4v1760635827195!5m2!1spt-BR!2sbr"
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Localização Baterias Ramos">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Baterias Ramos — Desde 1979 • Betim/MG</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Tradição, confiança e qualidade em baterias automotivas</p>
+    </footer>
+
+    <a href="https://wa.me/553135321880" target="_blank" class="whatsapp-float" title="Fale conosco no WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
+    <script>
+        // INSTRUÇÕES PARA ADICIONAR MAIS IMAGENS:
+        // Substitua as URLs abaixo pelas URLs das suas imagens hospedadas online
+        
+        // Configuração de imagens (para futuras adições)
+        const imagensConfig = {
+            equipe: "", // Cole aqui a URL ou Base64 da foto da equipe  
+            fachada: "" // Cole aqui a URL ou Base64 da foto da fachada
+        };
+
+        // Formulário de Orçamento
+        document.getElementById('formOrcamento').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const veiculo = document.getElementById('veiculo').value;
+            const ano = document.getElementById('ano').value;
+            const bairro = document.getElementById('bairro').value;
+            const marca = document.getElementById('marca').value;
+            
+            let mensagem = `Olá! Vim pelo site e gostaria de fazer um orçamento.\n`;
+            mensagem += `Veículo: ${veiculo} ano ${ano}.\n`;
+            mensagem += `Estou em ${bairro}.\n`;
+            
+            if (marca) {
+                mensagem += `Preferência: ${marca}.`;
+            }
+            
+            const url = `https://wa.me/553135321880?text=${encodeURIComponent(mensagem)}`;
+            window.open(url, '_blank');
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
