@@ -49,7 +49,28 @@
         .info-item { display: flex; gap: 1rem; }
         footer { background: #333; color: white; text-align: center; padding: 2rem; }
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #16a34a; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4); text-decoration: none; z-index: 999; }
-        @media (max-width: 768px) { .hero-content, .contato-grid { grid-template-columns: 1fr; } nav { display: none; } }
+        @media (max-width: 768px) {
+    .hero-content, .contato-grid { 
+        grid-template-columns: 1fr; 
+    }
+    
+    .header-content { 
+        justify-content: center;
+        padding: 1rem;
+    }
+    
+    .logo { 
+        height: 60px; 
+    }
+    
+    nav { 
+        display: none; 
+    }
+    
+    .menu-toggle { 
+        display: none; 
+    }
+}
     </style>
 </head>
 <body>
@@ -372,3 +393,4 @@
     </script>
 </body>
 </html>
+
