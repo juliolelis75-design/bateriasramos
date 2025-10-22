@@ -128,34 +128,34 @@
                 </div>
             </div>
             <div class="form-orcamento">
-                <h3>Faça seu orçamento</h3>
-                <form id="formOrcamento">
-                    <div class="form-group">
-                        <label>Modelo do veículo *</label>
-                        <input type="text" id="veiculo" required placeholder="Ex: Gol, Civic, HB20...">
-                    </div>
-                    <div class="form-group">
-                        <label>Ano *</label>
-                        <input type="text" id="ano" required placeholder="Ex: 2020">
-                    </div>
-                    <div class="form-group">
-                        <label>Bairro/Cidade *</label>
-                        <input type="text" id="bairro" required placeholder="Ex: Centro, Betim">
-                    </div>
-                    <div class="form-group">
-                        <label>Preferência de marca</label>
-                        <select id="marca">
-                            <option value="">Selecione...</option>
-                            <option value="Moura">Moura</option>
-                            <option value="Tudor">Tudor</option>
-                            <option value="Heliar">Heliar</option>
-                            <option value="Cral">Cral</option>
-                            <option value="Sedna">Sedna</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn-submit">Faça um orçamento agora</button>
-                </form>
-            </div>
+    <h3>Faça seu orçamento</h3>
+    <form id="formOrcamento">
+        <div class="form-group">
+            <label for="veiculo">Modelo do veículo *</label>
+            <input type="text" id="veiculo" required placeholder="Ex: Gol, Civic, HB20...">
+        </div>
+        <div class="form-group">
+            <label for="ano">Ano *</label>
+            <input type="text" id="ano" required placeholder="Ex: 2020">
+        </div>
+        <div class="form-group">
+            <label for="bairro">Bairro/Cidade *</label>
+            <input type="text" id="bairro" required placeholder="Ex: Centro, Betim">
+        </div>
+        <div class="form-group">
+            <label for="marca">Preferência de marca (opcional)</label>
+            <select id="marca">
+                <option value="">Selecione...</option>
+                <option value="Moura">Moura</option>
+                <option value="Tudor">Tudor</option>
+                <option value="Heliar">Heliar</option>
+                <option value="Cral">Cral</option>
+                <option value="Sedna">Sedna</option>
+            </select>
+        </div>
+        <button type="submit" class="btn-submit">Faça um orçamento agora mesmo</button>
+    </form>
+</div>
         </div>
     </section>
 
@@ -380,17 +380,25 @@
     </a>
 
     <script>
-        document.getElementById('formOrcamento').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const veiculo = document.getElementById('veiculo').value;
-            const ano = document.getElementById('ano').value;
-            const bairro = document.getElementById('bairro').value;
-            const marca = document.getElementById('marca').value;
-            let msg = `Olá! Orçamento:\nVeículo: ${veiculo} ${ano}\nLocal: ${bairro}`;
-            if (marca) msg += `\nMarca: ${marca}`;
-            window.open(`https://wa.me/553135321880?text=${encodeURIComponent(msg)}`, '_blank');
-        });
+     document.getElementById('formOrcamento').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const veiculo = document.getElementById('veiculo').value;
+    const ano = document.getElementById('ano').value;
+    const bairro = document.getElementById('bairro').value;
+    const marca = document.getElementById('marca').value;
+    
+    let msg = `Olá, vim do site e gostaria de um orçamento.\n\nVeículo: ${veiculo}\nAno: ${ano}\nLocalização: ${bairro}`;
+    
+    if (marca) {
+        msg += `\nPreferência de marca: ${marca}`;
+    }
+    
+    msg += `\n\nAguardo retorno. Obrigado!`;
+    
+    window.open(`https://wa.me/553135321880?text=${encodeURIComponent(msg)}`, '_blank');
+});
     </script>
 </body>
 </html>
+
 
