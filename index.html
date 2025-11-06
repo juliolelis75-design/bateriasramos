@@ -68,9 +68,11 @@
         footer { background: #333; color: white; text-align: center; padding: 2rem; }
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; background: #16a34a; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(22, 163, 74, 0.4); text-decoration: none; z-index: 999; }
         @media (max-width: 768px) {
-    .hero-content, .contato-grid { 
-        grid-template-columns: 1fr; 
-    }
+    .hero-content, .contato-grid .hero-content { 
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column-reverse;
+}
     
     .header-content { 
         justify-content: center;
@@ -423,6 +425,7 @@
     </script>
 </body>
 </html>
+
 
 
 
